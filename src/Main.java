@@ -3,13 +3,9 @@
  */
 public class Main {
     public static void main(String[] args) {
-        Point a= new Point(0,0);
-        Point b= new Point(0,0);
-        Point c= new Point(0,0);
-        System.out.println(new Line(a,b));
-        System.out.println(new Line(c,b));
-        System.out.println(new Line(c,a));
-        System.out.println(Point.isLieOnLine(a,b,c));
-        System.out.println(a.equals(b));
+        Line a=new Line(-2,4);
+        Line b=new Line(1/3,5);
+        System.out.println(Line.pointOfIntersection(a,b));
+        System.out.println( (a.k*(b.d-a.d)/(a.k-b.k)+a.d));
     }
 }

@@ -1,5 +1,4 @@
 import static java.lang.System.*;
-
 /**
  * Created by user on 08.03.2017.
  */
@@ -10,9 +9,9 @@ class Line {
         k=a;
         d=b;
     }
-    Line(double k) {
-        this.k = k;
-        d=0;
+    Line(double a) {
+        d=a;
+        k=0;
     }
     Line() {
         k=1;
@@ -66,5 +65,18 @@ class Line {
     }
     static boolean isCoinciding(Line a, Line b){
         return (a.k==b.k && a.d==b.d);
+    }
+    static Point pointOfIntersection(Line a, Line b){
+        if (Line.isCoinciding(a,b)){
+            err.println("Ошибка в методе static Point pointOfIntersection(Line a, Line b): Данные прямые совпадают");
+            return null;
+        }
+        if (Line.isParallel(a,b)){
+            err.println("Ошибка в методе static Point pointOfIntersection(Line a, Line b): Данные прямые параллельны");
+            return null;
+        }
+        if (a.k==0) return new Point((a.d-b.d)/b.k,a.d);
+        if (b.k==0) return new Point((b.d-a.d)/a.k,b.d);
+        return new Point ((b.d-a.d)/(a.k-b.k),a.k*(b.d-a.d)/(a.k-b.k)+a.d);
     }
 }
