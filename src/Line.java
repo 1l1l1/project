@@ -61,18 +61,10 @@ class Line {
                 return null;
         }
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Line line = (Line) o;
-
-        if (Double.compare(line.k, k) != 0) return false;
-        return Double.compare(line.d, d) == 0;
-
-    }
     static boolean isParallel(Line a, Line b){
         return a.k==b.k;
+    }
+    static boolean isCoinciding(Line a, Line b){
+        return (a.k==b.k && a.d==b.d);
     }
 }

@@ -42,9 +42,8 @@ public class Point {
             if (a.x==0 && b.x==0 || c.x==0 && b.x==0 || a.x==0 && c.x==0)
                 return a.x == 0 && b.x == 0 && c.x == 0;
             else
-                return ((new Line(a,b)).equals(new Line(b,c)));
+                return (Line.isCoinciding(new Line(a,b),(new Line(b,c))));
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -56,5 +55,4 @@ public class Point {
         return Double.compare(point.y, y) == 0;
 
     }
-
 }
