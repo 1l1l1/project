@@ -1,7 +1,5 @@
-/**
- * Created by user on 08.03.2017.
- */
-public class Point {
+//Created by user on 08.03.2017.
+class Point {
     private double x;
     private double y;
     Point(double a, double b){
@@ -17,8 +15,8 @@ public class Point {
     @Override
     public String toString() {
         return "Point(" +
-                "" + x +
-                ", " + y +
+                "" + String.format("%.3f", getX()) +
+                ", " + String.format("%.3f", getY()) +
                 ')';
     }
     double getX() {
@@ -44,15 +42,7 @@ public class Point {
             else
                 return (Line.isCoinciding(new Line(a,b),(new Line(b,c))));
     }
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        Point point = (Point) o;
-
-        if (Double.compare(point.x, x) != 0) return false;
-        return Double.compare(point.y, y) == 0;
-
+    boolean equals(Point a) {
+        return (this.x==a.x && this.y==a.y);
     }
 }
